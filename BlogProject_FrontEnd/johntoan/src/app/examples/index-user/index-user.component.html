@@ -1,0 +1,125 @@
+<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/daniel-olahh.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1 class="presentation-title">F4 Blogger</h1>
+            <br>
+            <h2 class="text-center">Chào mừng bạn đến với trang web của chúng tôi</h2>
+            <br/>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mr-auto ml-auto">
+                    <h2 class="title">List Blog by me</h2>
+                    <br>
+                    <a [routerLink]="['/createPost']" class="btn btn-danger btn-round">Create Blog</a>
+                </div>
+            </div>
+            <br/><br/>
+            <hr color="zed">
+
+            <ul class="list-unstyled">
+                <li class="media" *ngFor="let post of listPost">
+                    <img class="img-thumbnail" src="./assets/img/faces/clem-onojeghuo-3.jpg"
+                         alt="Generic placeholder image" width="304" height="236">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">{{post.title}}</h5>
+                        <p class="card-text">{{sliceConten(post.content)}}</p>
+                        <br>
+                        <br>
+                        <div class="col-md-6 ml-auto mr-auto text-center">
+                            <button class="btn btn-info btn-round">EDIT</button>
+                            <button class="btn btn btn-info btn-round" (click)="deletePost(post)">DELETE</button>
+                        </div>
+                    </div>
+                    <hr>
+                </li>
+
+                <!--                <li class="media my-4">-->
+                <!--                    <img class="mr-3" src="./assets/img/faces/clem-onojeghuo-3.jpg" alt="Generic placeholder image">-->
+                <!--                    <div class="media-body">-->
+                <!--                        <h5 class="mt-0 mb-1">List-based media object</h5>-->
+                <!--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras-->
+                <!--                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi-->
+                <!--                        vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                <!--                    </div>-->
+                <!--                </li>-->
+                <!--                <li class="media">-->
+                <!--                    <img class="mr-3" src="./assets/img/faces/clem-onojeghuo-3.jpg" alt="Generic placeholder image">-->
+                <!--                    <div class="media-body">-->
+                <!--                        <h5 class="mt-0 mb-1">List-based media object</h5>-->
+                <!--                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras-->
+                <!--                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi-->
+                <!--                        vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                <!--                    </div>-->
+                <!--                </li>-->
+            </ul>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="dailySalesChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Daily Sales</h4>
+                            <p class="card-category">
+                                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in
+                                today sales.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> updated 4 minutes ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-warning">
+                            <div class="ct-chart" id="websiteViewsChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Email Subscriptions</h4>
+                            <p class="card-category">Last Campaign Performance</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-danger">
+                            <div class="ct-chart" id="completedTasksChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Completed Tasks</h4>
+                            <p class="card-category">Last Campaign Performance</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

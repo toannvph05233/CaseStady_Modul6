@@ -1,0 +1,8 @@
+:host ::ng-deep .ck-editor__editable_inline {
+    height: 350px !important;
+    background: white;
+}
+*{
+    color: black;
+    font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+}

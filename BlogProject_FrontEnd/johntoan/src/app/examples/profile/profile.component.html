@@ -1,0 +1,59 @@
+<div class="wrapper" style="">
+    <div class="page-header page-header-xs" data-parallax="true"
+         style="background-image: url('./assets/img/fabio-mangione.jpg');height: 15px">
+<!--        <div class="filter"></div>-->
+    </div>
+    <div style="margin: 30px" class="row">
+        <div style="margin: 20px" name="profile"  class="col-md-3 shadow">
+            <div name="avatar">
+<!--                <img width="50%" height="50%" src="{{userProfile.srcAvatar}}" alt="Circle Image"-->
+                <img width="50%" height="50%" src="./assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image"
+                     class="img-circle img-no-padding img-responsive">
+                <h4><span>{{userProfile.userName}}</span></h4>
+            </div>
+            <div *ngIf="statusedit == 0" name="info">info
+<!--                <h4><span>{{userProfile.userName}}</span></h4>-->
+                <h5><span>Firt name:{{userProfile.firstName}}</span></h5>
+                <h5><span>Last name:{{userProfile.lastName}}</span></h5>
+                <h5><span>Email: {{userProfile.email}}</span></h5>
+                <h5>Phone: <span>{{userProfile.mobile}}</span></h5>
+<!--                <h5>Avatar: <span>{{userProfile.srcAvatar}}</span></h5>-->
+                <h5>Create date: <span>{{postService.timeConverter(registeredAt)}}</span></h5>
+                <br/>
+                <button (click)="changeStatusEditProfile()" class="btn-primary btn">Edit</button>
+                <br/>
+            </div>
+            <div *ngIf="statusedit == 1" name="info">info
+                <form [formGroup]="profileForm" (ngSubmit)="editProfile()">
+                <h5>FirstName: <input formControlName="firstName" type="text" value="{{userProfile.firstName}}"></h5>
+                <h5>LastName: <input formControlName="lastName" type="text" value="{{userProfile.lastName}}"></h5>
+                <h5>Email: <input formControlName="email" type="text" value="{{userProfile.email}}"></h5>
+                <h5>Phone: <input formControlName="mobile" type="text" value="{{userProfile.mobile}}"></h5>
+                <!--                <h5>Avatar: <span>{{userProfile.srcAvatar}}</span></h5>-->
+                <br/>
+                <button type="submit" class="btn-primary btn">Save</button>
+                <br/>
+                </form>
+            </div>
+        </div>
+        <div style="margin: 20px" name="listpost" class="col-md-8">
+            <div>{{message}}</div>
+            <h5>List post:</h5><br>
+            <div style="margin-bottom: 25px" name="post" class="shadow row" *ngFor="let post of posts; let i = index">
+            <div name="post_img" class="p-0 m-0 nopadding" align="left">
+                <img class="nopadding" width="200px" height="150px" src="{{post.postImage}}">
+            </div>
+            <div name="post-info" class="col-md-7 nopadding" style="justify-content: start">
+                <h5><a (click)="goToPost(post)" ><span>Title post: {{post.title}}</span></a></h5>
+                <h5><span>Category: {{post.categoryEntityList[0]}} </span></h5>
+                <h5><span>Create Date: {{this.postService.timeConverter(post.createdAt)}}</span></h5>
+                <div align="right">
+                    <button class="btn btn-info btn-round" *ngIf="post.publishedStatus==1" (click)="changeStatus(post)"> Enable</button>
+                    <button class="btn btn-info btn-round" *ngIf="post.publishedStatus==0" (click)="changeStatus(post)"> Disable</button>
+                    <button (click)="createLink(post.id)" class="btn btn btn-info btn-round"> Share</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

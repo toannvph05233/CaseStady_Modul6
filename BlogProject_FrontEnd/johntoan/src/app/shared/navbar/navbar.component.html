@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+
+        <div *ngIf="isHome2()" class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/']">HOME</a>
+            <a class="navbar-brand" [routerLink]="['/profile']">PROFILE</a>
+            <a class="navbar-brand" [routerLink]="['/createPost']">ADD BLOG</a>
+        </div>
+
+        <div *ngIf="!isHome2()" class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/']">HOME</a>
+            <a class="navbar-brand" href="#">LATEST</a>
+            <a class="navbar-brand" href="#">TREND</a>
+            <a class="navbar-brand" [routerLink]="['/createPost']">ADD BLOG</a>
+            <a class="navbar-brand" [routerLink]="['/profile']">PROFILE</a>
+        </div>
+
+
+        <div class="navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom"
+                       href="https://twitter.com/CreativeTim" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                        <p class="d-lg-none">Twitter</p>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
+                       href="https://www.facebook.com/CreativeTim" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                        <p class="d-lg-none">Facebook</p>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom"
+                       href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                        <p class="d-lg-none">Instagram</p>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="!isDocumentation()">
+                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom"
+                       href="https://www.github.com/CreativeTimOfficial/paper-kit-2-angular" target="_blank">
+                        <i class="fa fa-github"></i>
+                        <p class="d-lg-none">GitHub</p>
+                    </a>
+                </li>
+
+
+                <!-- hiển thị khi ở trang home-->
+                <li class="nav-item" *ngIf="isHome()">
+                    <input class="nav-link" type="text" value="" placeholder="Search...">
+                </li>
+                <li class="nav-item" *ngIf="isHome()">
+                    <a href="#" target="_blank" class="btn btn-danger btn-round">Search</a>
+                </li>
+
+
+                <li class="nav-item" *ngIf="!isHome()">
+                    <a [routerLink]="['/home']" *ngIf="!isDocumentation()" class="nav-link btn btn-danger btn-round">Back Home</a>
+                </li>
+                <li class="nav-item" *ngIf="isDocumentation()">
+                    <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local"
+                       target="_blank" class="nav-link">Have an issue</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
